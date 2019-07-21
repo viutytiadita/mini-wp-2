@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "bootstrap-vue": "^2.0.0-rc.26",
+    "moment": "^2.24.0",
+    "vue": "^2.6.10",
+    "vue-hot-reload-api": "^2.3.3",
+    "vue-wysiwyg": "^1.7.2"
+  },
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^3.0.0",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
