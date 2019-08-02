@@ -11,7 +11,7 @@
 | POST   | /users/tokensignin                    | `User` sign in with Google                   | - | - | -|                
 
 ------
-
+]
 #### Example endpoint
 
 > POST / users/register

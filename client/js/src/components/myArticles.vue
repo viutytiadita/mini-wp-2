@@ -27,6 +27,8 @@ import addingArticles from "./addingArticle.vue";
 import eachArticle from "./eachArticle";
 
 let baseUrl = `http://localhost:3000`;
+// let baseUrl ="http://34.66.117.208"
+
 const Toast = Swal.mixin({
   toast: true,
   position: "center",
@@ -65,7 +67,19 @@ export default {
   },
   methods: {
     addNewArticle(newdata) {
-      this.articles.push(newdata);
+          axios({
+      method: "GET",
+      url: `${baseUrl}/articles/my`,
+      headers: {
+        token: localStorage.getItem("token")
+      }
+    })
+      .then(({ data }) => {
+        this.articles = data;
+      })
+      .catch(err => {
+        console.log(err);
+      });
     },
     deleteArticle(payload) {
       let index = this.articles.findIndex(i => i._id === payload._id)

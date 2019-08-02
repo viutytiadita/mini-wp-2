@@ -156,6 +156,7 @@
 <script>
 var moment = require("moment");
 let baseUrl = "http://localhost:3000";
+// let baseUrl ="http://34.66.117.208"
 export default {
   name: "each-article",
   props: ["articleList"],

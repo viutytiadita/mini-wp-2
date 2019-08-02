@@ -8936,7 +8936,14 @@ exports.default = void 0;
 //
 //
 //
-var baseUrl = "http://localhost:3000";
+var baseUrl = "http://localhost:3000"; // let baseUrl ="http://34.66.117.208"
+
+var Toast = Swal.mixin({
+  toast: true,
+  position: "center",
+  showConfirmButton: false,
+  timer: 3000
+});
 var _default = {
   data: function data() {
     return {
@@ -9210,7 +9217,8 @@ var Toast = Swal.mixin({
   showConfirmButton: false,
   timer: 3000
 });
-var baseUrl = "http://localhost:3000";
+var baseUrl = "http://localhost:3000"; // let baseUrl ="http://34.66.117.208"
+
 var _default = {
   components: {
     regisform: _regisform.default
@@ -14254,7 +14262,8 @@ exports.default = void 0;
 //
 var moment = require("moment");
 
-var baseUrl = "http://localhost:3000";
+var baseUrl = "http://localhost:3000"; // let baseUrl ="http://34.66.117.208"
+
 var _default = {
   name: "each-article",
   props: ["articleList"],
@@ -15036,7 +15045,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-var baseUrl = "http://localhost:3000";
+var baseUrl = "http://localhost:3000"; // let baseUrl ="http://34.66.117.208"
+
 var _default = {
   name: "home",
   components: {
@@ -15437,7 +15447,8 @@ var Toast = Swal.mixin({
   showConfirmButton: false,
   timer: 3000
 });
-var baseUrl = "http://localhost:3000";
+var baseUrl = "http://localhost:3000"; // let baseUrl ="http://34.66.117.208"
+
 var _default = {
   components: {},
   data: function data() {
@@ -15497,9 +15508,6 @@ var _default = {
       }).then(function (_ref) {
         var data = _ref.data;
         console.log(data);
-
-        _this.$emit("new-article", data);
-
         return axios({
           method: "PATCH",
           url: "".concat(baseUrl, "/articles/tag/").concat(data._id),
@@ -15513,6 +15521,9 @@ var _default = {
       }).then(function (_ref2) {
         var data = _ref2.data;
         _this.isLoading = false;
+
+        _this.$emit("new-article", data);
+
         Toast.fire({
           type: "success",
           title: "successully posted!"
@@ -15847,7 +15858,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-var baseUrl = "http://localhost:3000";
+var baseUrl = "http://localhost:3000"; // let baseUrl ="http://34.66.117.208"
+
 var Toast = Swal.mixin({
   toast: true,
   position: "center",
@@ -15886,7 +15898,20 @@ var _default = {
   },
   methods: {
     addNewArticle: function addNewArticle(newdata) {
-      this.articles.push(newdata);
+      var _this2 = this;
+
+      axios({
+        method: "GET",
+        url: "".concat(baseUrl, "/articles/my"),
+        headers: {
+          token: localStorage.getItem("token")
+        }
+      }).then(function (_ref2) {
+        var data = _ref2.data;
+        _this2.articles = data;
+      }).catch(function (err) {
+        console.log(err);
+      });
     },
     deleteArticle: function deleteArticle(payload) {
       var index = this.articles.findIndex(function (i) {
@@ -15896,7 +15921,7 @@ var _default = {
       this.articles.splice(index, 1);
     },
     detailTag: function detailTag(tag) {
-      var _this2 = this;
+      var _this3 = this;
 
       alert(tag);
       this.tag = tag;
@@ -15907,10 +15932,10 @@ var _default = {
         axios({
           method: "GET",
           url: "".concat(baseUrl, "/articles/find?tag=").concat(this.tag)
-        }).then(function (_ref2) {
-          var data = _ref2.data;
-          _this2.tag = '';
-          _this2.articles = data;
+        }).then(function (_ref3) {
+          var data = _ref3.data;
+          _this3.tag = '';
+          _this3.articles = data;
         }).catch(function (err) {
           console.log(err);
         });
@@ -16392,20 +16417,7 @@ exports.default = _default;
   return _c("div", { attrs: { id: "app" } }, [
     _c("div", [_c("navigation")], 1),
     _vm._v(" "),
-    _c("div", [
-      _c(
-        "div",
-        { staticClass: "footer-copyright text-center py-3 vuefooter" },
-        [
-          _vm._v(
-            "\n        © " +
-              _vm._s(new Date().getFullYear()) +
-              " Copyright:\n        "
-          ),
-          _c("b", [_vm._v("Viuty Tiadita")])
-        ]
-      )
-    ])
+    _c("div", [_vm._v(" -->\n      ")])
   ])
 }
 var staticRenderFns = []
@@ -53202,7 +53214,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35285" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34779" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

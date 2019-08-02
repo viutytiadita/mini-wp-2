@@ -4,12 +4,12 @@
       <navigation />
     </div>
     <div>
-      <!-- <footer class="page-footer font-small blue "> -->
-        <div class="footer-copyright text-center py-3 vuefooter">
+      <!-- <footer class="page-footer font-small blue "> --> -->
+        <!-- <div class="footer-copyright text-center py-3 vuefooter">
           © {{new Date().getFullYear()}} Copyright:
           <b>Viuty Tiadita</b>
-        </div>
-      <!-- </footer> -->
+        </div> -->
+       <!-- </footer> -->
     </div>
   </div>
 </template>
@@ -30,5 +30,6 @@ export default {
 .vuefooter{
     background-color: #49ecb3;
     margin-top: 5rem;
+    position: fixed;
 }
 </style>

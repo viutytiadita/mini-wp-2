@@ -47,6 +47,14 @@
 
 <script>
 let baseUrl = `http://localhost:3000`;
+// let baseUrl ="http://34.66.117.208"
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: "center",
+  showConfirmButton: false,
+  timer: 3000
+});
 
 export default {
 data() {

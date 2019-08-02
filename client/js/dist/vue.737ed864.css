@@ -87,6 +87,7 @@ body {
 .vuefooter{
     background-color: #49ecb3;
     margin-top: 5rem;
+    position: fixed;
 }
 
 .editr {

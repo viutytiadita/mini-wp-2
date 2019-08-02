@@ -52,6 +52,7 @@ const Toast = Swal.mixin({
   timer: 3000
 });
 let baseUrl = `http://localhost:3000`;
+// let baseUrl ="http://34.66.117.208"
 
 export default {
   components: {

@@ -2,6 +2,23 @@ const Article = require('../models/article')
 
 class ArticleController {
     static showList(req, res, next) {
+        // type : "title | my |"
+
+
+        // options = {};
+        // if(req.headers.type){
+        //     switch(req.headers.type){
+                
+        //         case "title" : {
+        //             options.title = req.decoded.id
+        //         }
+        //     }
+        // }
+        // console.log(options)
+        // options = {
+        //     user_id : req.decoded.id
+        // }
+        
         Article.find().populate('user_id').populate('category_id').sort({ createdAt: -1 })
             .then((data) => {
                 res.status(200).json(data)
@@ -55,7 +72,12 @@ class ArticleController {
             category_id: req.body.category,
         })
             .then(function (newarticle) {
-                res.status(201).json(newarticle)
+                return newarticle.populate('user_id').execPopulate()
+        
+            })
+            .then(data => {
+                console.log(data);
+                res.status(200).json(data)
             })
             .catch(next)
     }
@@ -128,6 +150,20 @@ class ArticleController {
 
     static update(req, res, next) {
         console.log(req.body);
+
+        // updatedObject = {
+        //     title: req.body.title,
+        //     content: req.body.content,
+        //     user_id: req.decoded.id,
+        //     category_id: req.body.category,
+        //     tags : req.body.tags
+        // }
+
+        // if(req.file){
+        //     updatedObject.image_url  = req.file.cloudStoragePublicUrl
+        // }
+ 
+
 
         Article.findByIdAndUpdate({ _id: req.params.articleid },
             {

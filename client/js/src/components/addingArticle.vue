@@ -64,6 +64,7 @@ const Toast = Swal.mixin({
   timer: 3000
 });
 let baseUrl = "http://localhost:3000";
+// let baseUrl ="http://34.66.117.208"
 export default {
   components: {},
   data() {
@@ -123,7 +124,6 @@ export default {
       })
         .then(({ data }) => {
           console.log(data);
-          this.$emit("new-article", data);
 
           return axios({
             method: "PATCH",
@@ -138,6 +138,7 @@ export default {
         })
         .then(({ data }) => {
           this.isLoading = false;
+          this.$emit("new-article", data);
           Toast.fire({
             type: "success",
             title: "successully posted!"
